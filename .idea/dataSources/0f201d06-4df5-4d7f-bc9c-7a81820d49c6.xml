@@ -370,11 +370,11 @@
     <package id="168" parent="1" name="rtree"/>
     <package id="169" parent="1" name="rtree_i32"/>
     <table id="170" parent="2" name="CardInfo"/>
-    <table id="171" parent="2" name="CardTypes "/>
+    <table id="171" parent="2" name="CardType"/>
     <table id="172" parent="2" name="Country"/>
-    <table id="173" parent="2" name="TransactionList "/>
-    <table id="174" parent="2" name="User "/>
-    <table id="175" parent="2" name="UserBank "/>
+    <table id="173" parent="2" name="TransactionList"/>
+    <table id="174" parent="2" name="User"/>
+    <table id="175" parent="2" name="UserBank"/>
     <table id="176" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
@@ -1363,158 +1363,216 @@
       <Position>6</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <key id="503" parent="170" name="CardInfo_pk">
+    <column id="503" parent="170" name="Account Number ">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <key id="504" parent="170" name="CardInfo_pk">
       <ColNames>Card ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="504" parent="171" name="Card ID">
+    <foreign-key id="505" parent="170">
+      <ColNames>Card type </ColNames>
+      <RefTableName>CardType</RefTableName>
+      <RefKeyName>CardTypes _pk</RefKeyName>
+      <RefColNames>Card ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="506" parent="170">
+      <ColNames>Account Number </ColNames>
+      <RefTableName>UserBank</RefTableName>
+      <RefKeyName>UserBank _pk</RefKeyName>
+      <RefColNames>Account Number </RefColNames>
+    </foreign-key>
+    <column id="507" parent="171" name="Card ID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="505" parent="171" name="Card Name">
+    <column id="508" parent="171" name="Card Name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <key id="506" parent="171" name="CardTypes _pk">
+    <key id="509" parent="171" name="CardTypes _pk">
       <ColNames>Card ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="507" parent="172" name="Country ID">
+    <column id="510" parent="172" name="Country ID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="508" parent="172" name="Country Name ">
+    <column id="511" parent="172" name="Country Name ">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="509" parent="172" name="Country LandCode">
+    <column id="512" parent="172" name="Country LandCode">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <key id="510" parent="172" name="Country_pk">
+    <key id="513" parent="172" name="Country_pk">
       <ColNames>Country ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="511" parent="173" name="Transaction ID">
+    <column id="514" parent="173" name="Transaction ID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="512" parent="173" name="Transaction _Date ">
+    <column id="515" parent="173" name="Transaction _Date ">
       <Position>2</Position>
       <DataType>Date|0s</DataType>
     </column>
-    <column id="513" parent="173" name="From ">
+    <column id="516" parent="173" name="From ">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="514" parent="173" name="To">
+    <column id="517" parent="173" name="To">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="515" parent="173" name="Amount ">
+    <column id="518" parent="173" name="Amount ">
       <Position>5</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <key id="516" parent="173" name="TransactionList _pk">
+    <key id="519" parent="173" name="TransactionList _pk">
       <ColNames>Transaction ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="517" parent="174" name="User ID">
+    <foreign-key id="520" parent="173">
+      <ColNames>From </ColNames>
+      <RefTableName>User</RefTableName>
+      <RefKeyName>User _pk</RefKeyName>
+      <RefColNames>User ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="521" parent="173">
+      <ColNames>To</ColNames>
+      <RefTableName>User</RefTableName>
+      <RefKeyName>User _pk</RefKeyName>
+      <RefColNames>User ID</RefColNames>
+    </foreign-key>
+    <column id="522" parent="174" name="User ID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="518" parent="174" name="First Name ">
+    <column id="523" parent="174" name="First Name ">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="519" parent="174" name="Last Name ">
+    <column id="524" parent="174" name="Last Name ">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="520" parent="174" name="E-mail">
+    <column id="525" parent="174" name="E-mail">
       <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="521" parent="174" name="Phone Number ">
+    <column id="526" parent="174" name="Phone Number ">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="522" parent="174" name="Address ">
+    <column id="527" parent="174" name="Address ">
       <Position>6</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="523" parent="174" name="Country ">
+    <column id="528" parent="174" name="Country ">
       <Position>7</Position>
       <DataType>Integer|0s</DataType>
     </column>
-    <column id="524" parent="174" name="Registration_Date ">
+    <column id="529" parent="174" name="Registration_Date ">
       <Position>8</Position>
       <DataType>Date|0s</DataType>
     </column>
-    <column id="525" parent="174" name="Card 1 ">
+    <column id="530" parent="174" name="Card 1 ">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="526" parent="174" name="Card 2 ">
+    <column id="531" parent="174" name="Card 2 ">
       <Position>10</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="527" parent="174" name="Card 3 ">
+    <column id="532" parent="174" name="Card 3 ">
       <Position>11</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="528" parent="174" name="User _pk">
+    <key id="533" parent="174" name="User _pk">
       <ColNames>User ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="529" parent="175" name="Account Number ">
+    <foreign-key id="534" parent="174">
+      <ColNames>Country </ColNames>
+      <RefTableName>Country</RefTableName>
+      <RefKeyName>Country_pk</RefKeyName>
+      <RefColNames>Country ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="535" parent="174">
+      <ColNames>Card 1 </ColNames>
+      <RefTableName>CardInfo</RefTableName>
+      <RefKeyName>CardInfo_pk</RefKeyName>
+      <RefColNames>Card ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="536" parent="174">
+      <ColNames>Card 2 </ColNames>
+      <RefTableName>CardInfo</RefTableName>
+      <RefKeyName>CardInfo_pk</RefKeyName>
+      <RefColNames>Card ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="537" parent="174">
+      <ColNames>Card 3 </ColNames>
+      <RefTableName>CardInfo</RefTableName>
+      <RefKeyName>CardInfo_pk</RefKeyName>
+      <RefColNames>Card ID</RefColNames>
+    </foreign-key>
+    <column id="538" parent="175" name="Account Number ">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="530" parent="175" name="Transactions Id ">
+    <column id="539" parent="175" name="Transactions Id ">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="531" parent="175" name="Card Number ">
+    <column id="540" parent="175" name="Card Number ">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="532" parent="175" name="Account Balance ">
+    <column id="541" parent="175" name="Account Balance ">
       <Position>4</Position>
       <DataType>real|0s</DataType>
     </column>
-    <key id="533" parent="175" name="UserBank _pk">
+    <key id="542" parent="175" name="UserBank _pk">
       <ColNames>Account Number </ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="534" parent="176" name="type">
+    <foreign-key id="543" parent="175">
+      <ColNames>Transactions Id </ColNames>
+      <RefTableName>TransactionList</RefTableName>
+      <RefKeyName>TransactionList _pk</RefKeyName>
+      <RefColNames>Transaction ID</RefColNames>
+    </foreign-key>
+    <column id="544" parent="176" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="535" parent="176" name="name">
+    <column id="545" parent="176" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="536" parent="176" name="tbl_name">
+    <column id="546" parent="176" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="537" parent="176" name="rootpage">
+    <column id="547" parent="176" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="538" parent="176" name="sql">
+    <column id="548" parent="176" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="539" parent="177" name="name">
+    <column id="549" parent="177" name="name">
       <Position>1</Position>
     </column>
-    <column id="540" parent="177" name="seq">
+    <column id="550" parent="177" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
