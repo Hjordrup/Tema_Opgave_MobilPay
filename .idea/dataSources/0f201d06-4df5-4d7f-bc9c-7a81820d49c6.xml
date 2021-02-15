@@ -1405,7 +1405,7 @@
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="512" parent="172" name="Country LandCode">
+    <column id="512" parent="172" name="CountrCode">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
