@@ -33,13 +33,13 @@ public class MainLogic {
              ResultSet rs = stmt.executeQuery(sql)){
 
             while (rs.next()){
-                System.out.println(rs.getInt("UserID")+  ". "
-                        + rs.getString("FirstName")+ ". "
-                        + rs.getString("LastName") + ". "
-                        + rs.getString("E_mail") + ". "
-                        + rs.getInt("PhoneNumber") + ".  "
-                        + rs.getString("Address") + ". "
-                        + rs.getString("CountryName") + ". "
+                System.out.println("User ID = "+ rs.getInt("UserID")+  ".  First Name is "
+                        + rs.getString("FirstName")+ ".  Last Name is "
+                        + rs.getString("LastName") + ".  E-mail is "
+                        + rs.getString("E_mail") + ".\nPhoneNumber is "
+                        + rs.getInt("PhoneNumber") + ".  Address is "
+                        + rs.getString("Address") + ". Country of Origin is "
+                        + rs.getString("CountryName") + ". Refistration Data is "
                         + rs.getDate("Registration_Date") + ". "
                          + "\n\n"
                 );
