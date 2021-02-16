@@ -23,7 +23,10 @@ public class MainLogic {
 
 
     public void selectSingleUserBasedOnID(int userID){
-        String sql = "SELECT * FROM User Where UserID ='" + userID + "'";
+        String sql = "SELECT UserID, FirstName, LastName, Balance, PhoneNumber, E_mail, Address, Country, Registration_Date, FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
+                "join Bank B on B.CardNumber  = CI.CardNumber join Country C on User.Country = C.CountryID where UserID = '" + userID + "'";
+
+
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
@@ -31,7 +34,14 @@ public class MainLogic {
 
             while (rs.next()){
                 System.out.println(rs.getInt("UserID")+  ". "
-                        + rs.getString("FirstName")+ "\n\n"
+                        + rs.getString("FirstName")+ ". "
+                        + rs.getString("LastName") + ". "
+                        + rs.getString("E_mail") + ". "
+                        + rs.getInt("PhoneNumber") + ".  "
+                        + rs.getString("Address") + ". "
+                        + rs.getString("CountryName") + ". "
+                        + rs.getDate("Registration_Date") + ". "
+                         + "\n\n"
                 );
             }
         }catch(SQLException e ){

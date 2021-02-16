@@ -1338,24 +1338,24 @@
     <argument id="496" parent="159">
       <Position>1</Position>
     </argument>
-    <column id="497" parent="170" name="Balance ">
+    <column id="497" parent="170" name="Balance">
       <Position>1</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <column id="498" parent="170" name="Card Number ">
+    <column id="498" parent="170" name="CardNumber">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
     <key id="499" parent="170" name="Bank_pk">
-      <ColNames>Card Number </ColNames>
+      <ColNames>CardNumber</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="500" parent="171" name="Card ID">
+    <column id="500" parent="171" name="CardID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="501" parent="171" name="Card Number">
+    <column id="501" parent="171" name="CardNumber">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </column>
@@ -1376,14 +1376,14 @@
       <DataType>integer|0s</DataType>
     </column>
     <key id="506" parent="171" name="CardInfo_pk">
-      <ColNames>Card ID</ColNames>
+      <ColNames>CardID</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="507" parent="171">
-      <ColNames>Card Number</ColNames>
+      <ColNames>CardNumber</ColNames>
       <RefTableName>Bank</RefTableName>
       <RefKeyName>Bank_pk</RefKeyName>
-      <RefColNames>Card Number </RefColNames>
+      <RefColNames>CardNumber</RefColNames>
     </foreign-key>
     <foreign-key id="508" parent="171">
       <ColNames>Card type </ColNames>
@@ -1404,12 +1404,12 @@
       <ColNames>Card ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="512" parent="173" name="Country ID">
+    <column id="512" parent="173" name="CountryID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="513" parent="173" name="Country Name ">
+    <column id="513" parent="173" name="CountryName">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
@@ -1418,7 +1418,7 @@
       <DataType>integer|0s</DataType>
     </column>
     <key id="515" parent="173" name="Country_pk">
-      <ColNames>Country ID</ColNames>
+      <ColNames>CountryID</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="516" parent="174" name="Transaction ID">
@@ -1467,31 +1467,31 @@
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="526" parent="175" name="LastName ">
+    <column id="526" parent="175" name="LastName">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="527" parent="175" name="E-mail">
+    <column id="527" parent="175" name="E_mail">
       <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="528" parent="175" name="PhoneNumber ">
+    <column id="528" parent="175" name="PhoneNumber">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="529" parent="175" name="Address ">
+    <column id="529" parent="175" name="Address">
       <Position>6</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="530" parent="175" name="Country ">
+    <column id="530" parent="175" name="Country">
       <Position>7</Position>
       <DataType>Integer|0s</DataType>
     </column>
-    <column id="531" parent="175" name="Registration_Date ">
+    <column id="531" parent="175" name="Registration_Date">
       <Position>8</Position>
       <DataType>Date|0s</DataType>
     </column>
-    <column id="532" parent="175" name="Card1 ">
+    <column id="532" parent="175" name="FirstCard">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
     </column>
@@ -1508,28 +1508,28 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="536" parent="175">
-      <ColNames>Country </ColNames>
+      <ColNames>Country</ColNames>
       <RefTableName>Country</RefTableName>
       <RefKeyName>Country_pk</RefKeyName>
-      <RefColNames>Country ID</RefColNames>
+      <RefColNames>CountryID</RefColNames>
     </foreign-key>
     <foreign-key id="537" parent="175">
-      <ColNames>Card1 </ColNames>
+      <ColNames>FirstCard</ColNames>
       <RefTableName>CardInfo</RefTableName>
       <RefKeyName>CardInfo_pk</RefKeyName>
-      <RefColNames>Card ID</RefColNames>
+      <RefColNames>CardID</RefColNames>
     </foreign-key>
     <foreign-key id="538" parent="175">
       <ColNames>Card2 </ColNames>
       <RefTableName>CardInfo</RefTableName>
       <RefKeyName>CardInfo_pk</RefKeyName>
-      <RefColNames>Card ID</RefColNames>
+      <RefColNames>CardID</RefColNames>
     </foreign-key>
     <foreign-key id="539" parent="175">
       <ColNames>Card3 </ColNames>
       <RefTableName>CardInfo</RefTableName>
       <RefKeyName>CardInfo_pk</RefKeyName>
-      <RefColNames>Card ID</RefColNames>
+      <RefColNames>CardID</RefColNames>
     </foreign-key>
     <column id="540" parent="176" name="type">
       <Position>1</Position>
