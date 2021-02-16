@@ -16,13 +16,14 @@ public class MainConsoleTest {
 
 
         switch (sc.nextInt()) {
-           /* case 1 -> System.out.println("Helle ");
-            case 2 -> System.out.println("bette"); */
-            case 3 -> logic.selectAll();
-
-
-
-
+            case 1 -> {
+                System.out.println("Indput the userid you are looking for");
+                int userIdTemp = sc.nextInt();
+                logic.selectSingleUserBasedOnID(userIdTemp);
+                break;
+            /*case 2 -> System.out.println("bette");
+            case 3 -> logic.selectAll();*/
+            }
 
 
         }

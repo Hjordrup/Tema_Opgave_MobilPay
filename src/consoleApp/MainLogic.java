@@ -22,16 +22,16 @@ public class MainLogic {
     }
 
 
-    public void selectAll(){
-        String sql = "SELECT * FROM User";
+    public void selectSingleUserBasedOnID(int userID){
+        String sql = "SELECT * FROM User Where UserID ='" + userID + "'";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)){
 
             while (rs.next()){
-                System.out.println(rs.getInt("User Id")+  ". "
-                        + rs.getString("First Name ")+ "\n\n"
+                System.out.println(rs.getInt("UserID")+  ". "
+                        + rs.getString("FirstName")+ "\n\n"
                 );
             }
         }catch(SQLException e ){
