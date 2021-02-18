@@ -88,5 +88,30 @@ public class MainLogic {
         }
     }
 
+    public void addNewCard(int cardNumber, int cvv, String Name, int cardType, String exDate){
+
+        String sql = "INSERT INTO CardInfo(cardnumber, ownersFullName , cvv, expirationDate, CardType) VALUES (?,?,?,?,?)";
+
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1,cardNumber);
+                pstm.setString(2,Name);
+                pstm.setInt(3,cvv);
+                pstm.setString(4,exDate);
+                pstm.setInt(5,cardType);
+            pstm.executeUpdate();
+        } catch(SQLException e ){
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+
+
+
+
+    }
 
 }

@@ -1359,7 +1359,7 @@
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="502" parent="171" name="Owners Full Name ">
+    <column id="502" parent="171" name="OwnersFullName">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
@@ -1367,11 +1367,11 @@
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="504" parent="171" name="Expiration Date ">
+    <column id="504" parent="171" name="ExpirationDate">
       <Position>5</Position>
-      <DataType>Date|0s</DataType>
+      <DataType>text|0s</DataType>
     </column>
-    <column id="505" parent="171" name="Card type ">
+    <column id="505" parent="171" name="CardType">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
     </column>
@@ -1386,7 +1386,7 @@
       <RefColNames>CardNumber</RefColNames>
     </foreign-key>
     <foreign-key id="508" parent="171">
-      <ColNames>Card type </ColNames>
+      <ColNames>CardType</ColNames>
       <RefTableName>CardType</RefTableName>
       <RefKeyName>CardTypes _pk</RefKeyName>
       <RefColNames>Card ID</RefColNames>

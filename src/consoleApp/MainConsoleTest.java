@@ -66,7 +66,18 @@ public class MainConsoleTest {
 
             case 5 -> {
 
-
+                System.out.println("input the card Number");
+                int cdNum = sc.nextInt();
+                System.out.println("Input CVV ");
+                int cvNum = sc.nextInt();
+                System.out.println("Input card owners name ");
+                String cardOwnserName = sc.next();
+                System.out.println("Input Expiration Date");
+                String exDate = sc.next();
+                System.out.println("Input cardType 1 = Master Card 2 = Visa");
+                int cType = sc.nextInt();
+                logic.addNewCard(cdNum,cvNum,cardOwnserName,cType,exDate);
+                System.out.println("New card added");
 
             }
 
