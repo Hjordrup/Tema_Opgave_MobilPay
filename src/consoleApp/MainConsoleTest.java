@@ -15,6 +15,10 @@ public class MainConsoleTest {
         System.out.println("Press 1 for account information");
         System.out.println("Press 2 for a Transaction list on a User ");
         System.out.println("Press 3 to add a new user ");
+        System.out.println("Press 4 to delete a User based on ID");
+        System.out.println("Press 5 to add a new Card");
+
+
 
         switch (sc.nextInt()) {
             case 1 -> {
@@ -54,6 +58,17 @@ public class MainConsoleTest {
                 System.out.println("New user has been added");
             }
 
+            case 4 -> {
+                System.out.println("Input the UserID for the user you wanna delete");
+                int deleteThisID = sc.nextInt();
+                logic.deleteUser(deleteThisID);
+            }
+
+            case 5 -> {
+
+
+
+            }
 
         }
 

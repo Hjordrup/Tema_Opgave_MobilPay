@@ -1,13 +1,11 @@
 package consoleApp;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class MainLogic {
 
-
-
+    //Local time to set a regristration date and time for a user.
     private static Date d1 = new Date();
 
     /**
@@ -75,8 +73,20 @@ public class MainLogic {
         }
     }
 
+    public void deleteUser(int userID){
+        String sql ="DELETE FROM User WHERE UserID = ?";
 
 
+        try (Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1,userID);
+            pstmt.executeUpdate();
+            System.out.println("User has been deleted ");
+        }catch(SQLException e ){
+            System.out.println(e.getMessage());
+            System.out.println("User has not been deleted ");
+        }
+    }
 
 
 }
