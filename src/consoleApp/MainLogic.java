@@ -1,9 +1,14 @@
 package consoleApp;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class MainLogic {
 
+
+
+    private static Date d1 = new Date();
 
     /**
      * Connect to the test.db database
@@ -48,5 +53,30 @@ public class MainLogic {
             System.out.println(e.getMessage());
         }
     }
+
+    public void addNewUser(String firstName, String lastName, String e_Mail, int phoneNumber, int countryID, String address, int cardID){
+
+        String sql = "INSERT INTO User(firstname, lastname, e_mail, phonenumber, address, country,  Registration_Date, firstcard) VALUES (?,?,?,?,?,?,?,?)";
+
+
+        try (Connection conn = this.connect();
+           PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1,firstName);
+            pstm.setString(2,lastName);
+            pstm.setString(3,e_Mail);
+            pstm.setInt(4,phoneNumber);
+            pstm.setString(5,address);
+            pstm.setInt(6,countryID);
+            pstm.setString(7, String.valueOf(d1));
+            pstm.setInt(8,cardID);
+            pstm.executeUpdate();
+        } catch(SQLException e ){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+
 
 }

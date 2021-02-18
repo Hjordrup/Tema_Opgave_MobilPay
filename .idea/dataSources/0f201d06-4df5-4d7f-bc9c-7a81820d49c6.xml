@@ -1421,39 +1421,39 @@
       <ColNames>CountryID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="516" parent="174" name="Transaction ID">
+    <column id="516" parent="174" name="TransactionID">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="517" parent="174" name="Transaction _Date ">
+    <column id="517" parent="174" name="TransactionDate">
       <Position>2</Position>
       <DataType>Date|0s</DataType>
     </column>
-    <column id="518" parent="174" name="From ">
+    <column id="518" parent="174" name="FromID">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="519" parent="174" name="To">
+    <column id="519" parent="174" name="ToID">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="520" parent="174" name="Amount ">
+    <column id="520" parent="174" name="Amount">
       <Position>5</Position>
       <DataType>REAL|0s</DataType>
     </column>
     <key id="521" parent="174" name="TransactionList _pk">
-      <ColNames>Transaction ID</ColNames>
+      <ColNames>TransactionID</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="522" parent="174">
-      <ColNames>From </ColNames>
+      <ColNames>FromID</ColNames>
       <RefTableName>User</RefTableName>
       <RefKeyName>User _pk</RefKeyName>
       <RefColNames>UserID</RefColNames>
     </foreign-key>
     <foreign-key id="523" parent="174">
-      <ColNames>To</ColNames>
+      <ColNames>ToID</ColNames>
       <RefTableName>User</RefTableName>
       <RefKeyName>User _pk</RefKeyName>
       <RefColNames>UserID</RefColNames>
@@ -1489,7 +1489,7 @@
     </column>
     <column id="531" parent="175" name="Registration_Date">
       <Position>8</Position>
-      <DataType>Date|0s</DataType>
+      <DataType>text|0s</DataType>
     </column>
     <column id="532" parent="175" name="FirstCard">
       <Position>9</Position>
