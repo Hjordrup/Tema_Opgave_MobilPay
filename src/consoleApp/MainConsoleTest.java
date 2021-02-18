@@ -79,7 +79,10 @@ public class MainConsoleTest {
                 String exDate = sc.next();
                 System.out.println("Input cardType 1 = Master Card 2 = Visa");
                 int cType = sc.nextInt();
-                logic.addNewCard(cdNum,cvNum,cardOwnserName,cType,exDate);
+                System.out.println("input the balance");
+                double balance = sc.nextDouble();
+                logic.addNewCard(cdNum,cvNum,cardOwnserName,cType,exDate,balance);
+
                 System.out.println("New card added");
 
             }

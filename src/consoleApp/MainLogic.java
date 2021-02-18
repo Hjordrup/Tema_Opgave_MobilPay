@@ -26,7 +26,7 @@ public class MainLogic {
 
     public void selectSingleUserBasedOnID(int userID){
         String sql = "SELECT UserID, FirstName, RegistrationDate,LastName, Balance, PhoneNumber, E_mail, Address, Country,  FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
-                "join Bank B on B.CardNumber  = CI.CardNumber join Country C on User.Country = C.CountryID where UserID = '" + userID + "'";
+                "join Country C on User.Country = C.CountryID where UserID = '" + userID + "'";
 
 
 
@@ -87,9 +87,9 @@ public class MainLogic {
         }
     }
 
-    public void addNewCard(int cardNumber, int cvv, String Name, int cardType, String exDate){
+    public void addNewCard(int cardNumber, int cvv, String Name, int cardType, String exDate, double balance){
 
-        String sql = "INSERT INTO CardInfo(cardnumber, ownersFullName , cvv, expirationDate, CardType) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO CardInfo(cardnumber, ownersFullName , cvv, expirationDate, CardType, Balance) VALUES (?,?,?,?,?,?)";
 
 
         try (Connection conn = this.connect();
@@ -99,6 +99,7 @@ public class MainLogic {
                 pstm.setInt(3,cvv);
                 pstm.setString(4,exDate);
                 pstm.setInt(5,cardType);
+                pstm.setDouble(6,balance);
             pstm.executeUpdate();
         } catch(SQLException e ){
             System.out.println(e.getMessage());
@@ -111,7 +112,7 @@ public class MainLogic {
 
     public void showAllUsersInSystem() {
         String sql = "SELECT UserID, FirstName, RegistrationDate,LastName, Balance, PhoneNumber, E_mail, Address, Country,  FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
-                "join Bank B on B.CardNumber  = CI.CardNumber join Country C on User.Country = C.CountryID";
+                " join Country C on User.Country = C.CountryID";
 
 
 
@@ -164,4 +165,25 @@ public class MainLogic {
             System.out.println(e.getMessage());
         }
     }
+
+    public void transMoney(int senderCardNumber, int fromID, int toID, int receiverCardNumber, double amount){
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 }
