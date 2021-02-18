@@ -165,25 +165,4 @@ public class MainLogic {
             System.out.println(e.getMessage());
         }
     }
-
-    public void transMoney(int senderCardNumber, int fromID, int toID, int receiverCardNumber, double amount){
-
-
-
-
-
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-
 }

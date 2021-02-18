@@ -12,28 +12,24 @@ public class MainConsoleTest {
         System.out.println("welcome to my mobilPay app in console view ");
         System.out.println("How can we help you today ? ");
         System.out.println("*************************************************");
-        System.out.println("");
+        System.out.println();
         System.out.println("Press 1 for account information based on userID");
-        System.out.println("Press 2 for a Transaction list on a User ");
+        System.out.println("Press 2 for a Transaction list ");
         System.out.println("Press 3 to add a new user ");
         System.out.println("Press 4 to delete a User based on ID");
         System.out.println("Press 5 to add a new Card");
         System.out.println("Press 6 to see all user in the system");
-        System.out.println("Press 7 to see all Transaction that has happened in the system");
 
 
 
         switch (sc.nextInt()) {
             case 1 -> {
-                System.out.println("Indput the userID you are looking for");
+                System.out.println("Input the userID you are looking for");
                 int userIdTemp = sc.nextInt();
                 logic.selectSingleUserBasedOnID(userIdTemp);
-                break;}
+                }
 
-            case 2 -> {
-                System.out.println("Indput the UserId to see a transaction list");
-
-            }
+            case 2 -> logic.showAllTransActions();
 
             case 3 -> {
                 System.out.println("Input users First Name");
@@ -73,30 +69,26 @@ public class MainConsoleTest {
                 int cdNum = sc.nextInt();
                 System.out.println("Input CVV ");
                 int cvNum = sc.nextInt();
-                System.out.println("Input card owners name ");
-                String cardOwnserName = sc.next();
+                System.out.println("Input card owners name (The name needs to be separated by _");
+                String cardOwnerName = sc.next();
                 System.out.println("Input Expiration Date");
                 String exDate = sc.next();
                 System.out.println("Input cardType 1 = Master Card 2 = Visa");
                 int cType = sc.nextInt();
                 System.out.println("input the balance");
                 double balance = sc.nextDouble();
-                logic.addNewCard(cdNum,cvNum,cardOwnserName,cType,exDate,balance);
+                logic.addNewCard(cdNum,cvNum,cardOwnerName,cType,exDate,balance);
 
                 System.out.println("New card added");
 
             }
 
-            case 6 -> {
-            logic.showAllUsersInSystem();
+            case 6 -> logic.showAllUsersInSystem();
 
 
 
-            }
 
-            case 7 -> {
-                logic.showAllTransActions();
-            }
+
 
         }
 
