@@ -24,9 +24,8 @@ public class MainLogic {
         return conn;
     }
 
-
     public void selectSingleUserBasedOnID(int userID){
-        String sql = "SELECT UserID, FirstName, LastName, Balance, PhoneNumber, E_mail, Address, Country, Registration_Date, FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
+        String sql = "SELECT UserID, FirstName, RegistrationDate,LastName, Balance, PhoneNumber, E_mail, Address, Country,  FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
                 "join Bank B on B.CardNumber  = CI.CardNumber join Country C on User.Country = C.CountryID where UserID = '" + userID + "'";
 
 
@@ -42,8 +41,8 @@ public class MainLogic {
                         + rs.getString("E_mail") + ".\nPhoneNumber is "
                         + rs.getInt("PhoneNumber") + ".  Address is "
                         + rs.getString("Address") + ". Country of Origin is "
-                        + rs.getString("CountryName") + ". Refistration Data is "
-                        + rs.getDate("Registration_Date") + ". "
+                        + rs.getString("CountryName") + "Registration Date is "
+                        + rs.getString("RegistrationDate")
                          + "\n\n"
                 );
             }
@@ -54,7 +53,7 @@ public class MainLogic {
 
     public void addNewUser(String firstName, String lastName, String e_Mail, int phoneNumber, int countryID, String address, int cardID){
 
-        String sql = "INSERT INTO User(firstname, lastname, e_mail, phonenumber, address, country,  Registration_Date, firstcard) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO User(firstname, lastname, e_mail, phonenumber, address, country,  RegistrationDate, firstcard) VALUES (?,?,?,?,?,?,?,?)";
 
 
         try (Connection conn = this.connect();
@@ -108,10 +107,61 @@ public class MainLogic {
 
 
 
+    }
 
+    public void showAllUsersInSystem() {
+        String sql = "SELECT UserID, FirstName, RegistrationDate,LastName, Balance, PhoneNumber, E_mail, Address, Country,  FirstCard, CountryName FROM User join CardInfo CI on CI.CardID = User.FirstCard " +
+                "join Bank B on B.CardNumber  = CI.CardNumber join Country C on User.Country = C.CountryID";
+
+
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+
+            while (rs.next()){
+                System.out.println("User ID = "+ rs.getInt("UserID")+  ".  First Name is "
+                        + rs.getString("FirstName")+ ".  Last Name is "
+                        + rs.getString("LastName") + ".  E-mail is "
+                        + rs.getString("E_mail") + ".\nPhoneNumber is "
+                        + rs.getInt("PhoneNumber") + ".  Address is "
+                        + rs.getString("Address") + ". Country of Origin is "
+                        + rs.getString("CountryName") + "Registration Date is "
+                        + rs.getString("RegistrationDate")
+                        + "\n\n"
+                );
+            }
+        }catch(SQLException e ){
+            System.out.println(e.getMessage());
+        }
 
 
 
     }
 
+    public void showAllTransActions() {
+
+
+       String sql = "SELECT SenderID, ReceiverID, Amount, TransactionDate, TransactionID FROM TransactionList ";
+
+
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+
+            while (rs.next()){
+                System.out.println(
+                    "TransAction ID = " + rs.getInt("TransactionID") + ". \n" +
+                    "From " + rs.getInt("SenderID") + " \n" +
+                    "To " + rs.getInt("ReceiverID") + " \n" +
+                    "The Amount is  " + rs.getDouble("Amount") + " \n" +
+                    "Transaction Date and time is  " + rs.getString("TransactionDate") +
+                    " \n\n"
+                );
+            }
+        }catch(SQLException e ){
+            System.out.println(e.getMessage());
+        }
+    }
 }

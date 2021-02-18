@@ -12,17 +12,20 @@ public class MainConsoleTest {
         System.out.println("welcome to my mobilPay app in console view ");
         System.out.println("How can we help you today ? ");
         System.out.println("*************************************************");
-        System.out.println("Press 1 for account information");
+        System.out.println("");
+        System.out.println("Press 1 for account information based on userID");
         System.out.println("Press 2 for a Transaction list on a User ");
         System.out.println("Press 3 to add a new user ");
         System.out.println("Press 4 to delete a User based on ID");
         System.out.println("Press 5 to add a new Card");
+        System.out.println("Press 6 to see all user in the system");
+        System.out.println("Press 7 to see all Transaction that has happened in the system");
 
 
 
         switch (sc.nextInt()) {
             case 1 -> {
-                System.out.println("Indput the userid you are looking for");
+                System.out.println("Indput the userID you are looking for");
                 int userIdTemp = sc.nextInt();
                 logic.selectSingleUserBasedOnID(userIdTemp);
                 break;}
@@ -79,6 +82,17 @@ public class MainConsoleTest {
                 logic.addNewCard(cdNum,cvNum,cardOwnserName,cType,exDate);
                 System.out.println("New card added");
 
+            }
+
+            case 6 -> {
+            logic.showAllUsersInSystem();
+
+
+
+            }
+
+            case 7 -> {
+                logic.showAllTransActions();
             }
 
         }

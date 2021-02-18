@@ -1428,13 +1428,13 @@
     </column>
     <column id="517" parent="174" name="TransactionDate">
       <Position>2</Position>
-      <DataType>Date|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <column id="518" parent="174" name="FromID">
+    <column id="518" parent="174" name="SenderID">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <column id="519" parent="174" name="ToID">
+    <column id="519" parent="174" name="ReceiverID">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
@@ -1447,13 +1447,13 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="522" parent="174">
-      <ColNames>FromID</ColNames>
+      <ColNames>SenderID</ColNames>
       <RefTableName>User</RefTableName>
       <RefKeyName>User _pk</RefKeyName>
       <RefColNames>UserID</RefColNames>
     </foreign-key>
     <foreign-key id="523" parent="174">
-      <ColNames>ToID</ColNames>
+      <ColNames>ReceiverID</ColNames>
       <RefTableName>User</RefTableName>
       <RefKeyName>User _pk</RefKeyName>
       <RefColNames>UserID</RefColNames>
@@ -1487,9 +1487,9 @@
       <Position>7</Position>
       <DataType>Integer|0s</DataType>
     </column>
-    <column id="531" parent="175" name="Registration_Date">
+    <column id="531" parent="175" name="RegistrationDate">
       <Position>8</Position>
-      <DataType>text|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
     <column id="532" parent="175" name="FirstCard">
       <Position>9</Position>
