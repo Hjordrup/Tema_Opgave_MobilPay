@@ -22,6 +22,7 @@ public class MainConsoleTest {
 
 
 
+
         switch (sc.nextInt()) {
             case 1 -> {
                 System.out.println("Input the userID you are looking for");
@@ -84,6 +85,8 @@ public class MainConsoleTest {
             }
 
             case 6 -> logic.showAllUsersInSystem();
+
+
 
 
 
