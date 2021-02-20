@@ -166,22 +166,5 @@ public class MainLogic {
         }
     }
 
-    public void doTransactionFromOnUserToAnother(double Amount, int fromUserId, int toUserId, int cardIDF, int cardIdT ){
 
-
-
-        String dateNow = String.valueOf(d1);
-        String sql = "BEGIN TRANSACTION; UPDATE CardInfo Set Balance = Balance - '" + Amount + "' WHERE CardID = '" + cardIDF + "';" +
-                "UPDATE CardInfo SET Balance = Balance +  '" + Amount + "' WHERE CardID = '" + cardIdT + "'; " +
-                "INSERT INTO TransactionList (TransactionDate, SenderID, ReceiverID, Amount) VALUES ('" + dateNow + "', '" + fromUserId + "' , '" + toUserId + "' , '" + Amount + "'); COMMIT; ";
-
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.executeUpdate();
-        } catch(SQLException e ){
-            System.out.println(e.getMessage());
-        }
-
-    }
 }
