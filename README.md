@@ -1,6 +1,6 @@
-# Title of The Proyect
+# Title of The Project
 
-- Title of the Proyect
+- Title of the Project
 
 ## Description
 
